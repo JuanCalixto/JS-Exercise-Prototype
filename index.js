@@ -63,7 +63,11 @@ function Airplane(name) {
     return `${this.name}, ${this.age}`; // Returns template literal with name and age.
   };
  
+  // const juan = new Person('Juan', 28);
 
+  // console.log(juan.eat(11));
+  // console.log(juan.poop());
+  // console.log(juan.toString());
   
   
   /*
