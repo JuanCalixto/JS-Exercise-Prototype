@@ -39,14 +39,31 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ function Person(name, age) {
+    this.stomach = [];
+    this.name = name;
+    this.age = age;
   }
  
+   // Creating eat method with edible argument to object constructor
+  Person.prototype.eat = function(edible) {
+    // Conditional
+    if (this.stomach.length < 10) {
+      this.stomach.push(edible); //  If meets condition, it will invoke and push to stomach array
+    }
+  };
+
+   // Creating poop method to object constructor
+  Person.prototype.poop = function() {
+    this.stomach = []; // Will empty array if invoked
+  };
+
+  // Creating new method inheriting properties. ptoString
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`; // Returns template literal with name and age.
+  };
  
 
-  
-  
   
   
   /*
