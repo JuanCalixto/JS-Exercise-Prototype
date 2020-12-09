@@ -133,10 +133,10 @@ function Airplane(name) {
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window Binding: global scope, no declared object. "this" refers to whatever scope it is placed in.
+    2. Implicit Binding: declared object. Whenever a dot is used in calling a function, everything to the left of the dot is the scope that "this" will refer to.
+    3. 'new' Binding: 'new' operator with constructor.  When placed inside of an instance created by a constructor, "this" will refer to the new instance.
+    4. Explicit Binding: call(obj, arg1, arg2, ...)/apply(obj, array) . "this" is defined automatically when using the call and apply methods.
   */
   
   
