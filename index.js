@@ -45,7 +45,7 @@ function Airplane(name) {
     this.age = age;
   }
  
-   // Creating eat method with edible argument to object constructor
+   // Creating eat method prototype with edible argument to object Person constructor
   Person.prototype.eat = function(edible) {
     // Conditional
     if (this.stomach.length < 10) {
@@ -83,12 +83,25 @@ function Airplane(name) {
       - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
-  
- function Car() {
-    
+
+  // Creating Car object constructor function with model and milesPerGallon parameters
+ function Car(model, milesPerGallon) {
+   // creating properties
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+
+   // Creating fill prototype with gallons argument to object constructor
+  Car.prototype.fill = function(gallons){
+    return this.tank += gallons // Returns tank value
   }
   
-  
+  // const batCar = new Car('Batmobile', 25);
+
+  // console.log(batCar.fill(30));
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
