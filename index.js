@@ -39,14 +39,36 @@ function Airplane(name) {
           + It should return a string with `name` and `age`. Example: "Mary, 50"
   */
   
- function Person() {
-    
+ // Creating Person object constructor function with name and age objects
+  function Person(name, age) {
+    this.stomach = []; // Creating properties to Person constructor
+    this.name = name;
+    this.age = age;
   }
  
- 
+   // Creating eat method prototype with edible argument to object Person constructor
+  Person.prototype.eat = function(edible) {
+    // Conditional
+    if (this.stomach.length < 10) {
+      this.stomach.push(edible); //  If meets condition, it will invoke and push to stomach array
+    }
+  };
 
-  
-  
+   // Creating poop method to object constructor
+  Person.prototype.poop = function() {
+    this.stomach = []; // Will empty array if invoked
+  };
+
+  // Creating new method inheriting properties. ptoString
+  Person.prototype.toString = function() {
+    return `${this.name}, ${this.age}`; // Returns template literal with name and age.
+  };
+ 
+  // const juan = new Person('Juan', 28);
+
+  // console.log(juan.eat(11));
+  // console.log(juan.poop());
+  // console.log(juan.toString());
   
   
   /*
@@ -62,12 +84,26 @@ function Airplane(name) {
       - STRETCH: A car which runs out of `fuel` while driving can't drive any more distance:
           + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
   */
-  
- function Car() {
-    
+
+  // Creating Car object constructor function with model and milesPerGallon objects
+ function Car(model, milesPerGallon) {
+   // creating properties
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+
+   // Creating fill prototype properties with gallons argument to object constructor
+  Car.prototype.fill = function(gallons){
+    return this.tank += gallons // Returns tank value
   }
   
-  
+  // const batCar = new Car('Batmobile', 25);
+
+  // console.log(batCar.fill(30));
+
+
   /*
     TASK 3
       - Write a Baby constructor subclassing Person.
@@ -75,18 +111,32 @@ function Airplane(name) {
       - Besides the methods on Person.prototype, babies have the ability to `.play()`:
           + Should return a string "Playing with x", x being the favorite toy.
   */
- function Baby() {
-   
+
+  // Creating Baby object constructor function with name, age, and favoriteToy objects
+ function Baby(name, age, favoriteToy) {
+   this.name = name; // Creating properties to Baby constructor
+   this.age = age;
+   this.favoriteToy = favoriteToy;
   }
  
+  Baby.prototype = Object.create(Person.prototype); // Creating new object using existing object as the prototype parent of the newly created object to inherit properties
+
+  // Creating play method prototype to Baby constructor
+  Baby.prototype.play = function() {
+    return `Playing with ${this.favoriteToy}`; // Returns template literal of favoriteToy
+  }
+
+  // const newBaby = new Baby('mike', '12 Months', 'rattle');
+
+  // console.log(newBaby.play());
   
   /* 
     TASK 4
     In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
+    1. Window Binding: global scope, no declared object. "this" refers to whatever scope it is placed in.
+    2. Implicit Binding: declared object. Whenever a dot is used in calling a function, everything to the left of the dot is the scope that "this" will refer to.
+    3. 'new' Binding: 'new' operator with constructor.  When placed inside of an instance created by a constructor, "this" will refer to the new instance.
+    4. Explicit Binding: call(obj, arg1, arg2, ...)/apply(obj, array) . "this" is defined automatically when using the call and apply methods.
   */
   
   
